@@ -1,6 +1,8 @@
 const Koa = require('koa');
 
-const router = require('koa-router')();
+const bodyParser = require('koa-bodyparser');
+
+const controller = require('./controller');
 
 const app = new Koa();
 
@@ -9,16 +11,9 @@ app.use(async (ctx, next) => {
 	await next();
 });
 
-router.get('/hello/:name', async (ctx, next) => {
-	var name = ctx.params.name;
-	ctx.response.body = `<h1>Hello, ${name}!</h1>`;
-});
+app.use(bodyParser());
 
-router.get('/', async (ctx, next) => {
-	ctx.response.body = '<h1>Index</h1>';
-});
-
-app.use(router.routes());
+app.use(controller());
 
 app.listen(3000);
 console.log('app started at port 3000...');
