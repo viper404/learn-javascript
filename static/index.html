@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="/static/js/jquery-3.1.1.min.js"></script>
+<script src="/static/js/vue.min.js"></script>
+<script>
+$(function () {
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            name: 'Robot',
+            age: 15
+        }
+    });
+    window.vm = vm;
+});
+</script>
+</head>
+<body>
+    <div id="vm">
+        <p>Hello, {{ name }}!</p>
+        <p>You are {{ age }} years old!</p>
+    </div>
+</body>
+<html>
