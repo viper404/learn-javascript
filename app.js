@@ -11,6 +11,9 @@ app.use(async (ctx, next) => {
 	await next();
 });
 
+let staticFiles = require('./static-files');
+app.use(staticFiles('/static/', __dirname + '/static'));
+
 app.use(bodyParser());
 
 app.use(controller());
