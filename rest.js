@@ -8,6 +8,7 @@ module.exports = {
 		pathPrefix = pathPrefix || '/api/';
 		return async (ctx, next) => {
 			if (ctx.request.path.startsWith(pathPrefix)) {
+				console.log(`Process API ${ctx.request.method} ${ctx.request.url}...`);
 				ctx.rest = (data) => {
 					ctx.response.type = 'application/json';
 					ctx.response.body = data;

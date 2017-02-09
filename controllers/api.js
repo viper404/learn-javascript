@@ -1,3 +1,5 @@
+const APIError = require('../rest').APIError;
+
 var products = [{
 	name: 'iPhone',
 	price: 6999

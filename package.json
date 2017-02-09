@@ -1,14 +1,14 @@
 {
-	"name": "hello-koa2",
+	"name": "vue-koa",
 	"version": "1.0.0",
-	"description": "Hello Koa 2 example with async",
+	"description": "MVVM",
 	"main": "start.js",
 	"scripts": {
 		"start": "node start.js"
 	},
 	"keywords": [
-		"koa",
-		"async"
+		"vue",
+		"koa"
 	],
 	"author": "vincent peng",
 	"license": "Apache-2.0",

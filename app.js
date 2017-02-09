@@ -4,6 +4,8 @@ const bodyParser = require('koa-bodyparser');
 
 const controller = require('./controller');
 
+const rest = require('./rest');
+
 const app = new Koa();
 
 app.use(async (ctx, next) => {
@@ -15,6 +17,8 @@ let staticFiles = require('./static-files');
 app.use(staticFiles('/static/', __dirname + '/static'));
 
 app.use(bodyParser());
+
+app.use(rest.restify());
 
 app.use(controller());
 
