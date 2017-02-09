@@ -7,24 +7,67 @@ $(function () {
     var vm = new Vue({
         el: '#vm',
         data: {
-            email: '',
-            name: ''
+            todos: [
+                {
+                    name: '产品评审',
+                    description: '新款iPhone上市前评审'
+                },
+                {
+                    name: '开发计划',
+                    description: '与PM确定下一版Android开发计划'
+                },
+                {
+                    name: 'VC会议',
+                    description: '敲定C轮5000万美元融资'
+                }
+            ]
+        },
+        created: function () {
+            this.init();
         },
         methods: {
-            register: function () {
-                alert(JSON.stringify(this.$data));
+            init: function () {
+            },
+            create: function () {
+            },
+            update: function () {
+            },
+            remove: function () {
+            }
+        }
+    });
+    var vmAdd = new Vue({
+        el: '#vmAdd',
+        data: {
+            name: '',
+            description: ''
+        },
+        methods: {
+            submit: function () {
             }
         }
     });
     window.vm = vm;
+    window.vmAdd = vmAdd;
 });
 </script>
 </head>
 <body>
-    <form id="vm" v-on:submit.prevent="register">
-        <p>Email: <input v-model="email" type="text"></p>
-        <p>Name: <input v-model="name" type="text"></p>
-        <p><input type="submit" value="Register"></p>
+    <div id="vm">
+        <ol>
+            <li v-for="t in todos">
+                <dl>
+                    <dt contenteditable="true" v-on:blur="update">{{ t.name }}</dt>
+                    <dd contenteditable="true" v-on:blur="update">{{ t.description }}</dd>
+                    <dd><a href="#0" v-on:click="remove">Delete</a></dd>
+                </dl>
+            </li>
+        </ol>
+    </div>
+    <form id="vmAdd" action="#0" v-on:submit.prevent="submit">
+        <p><input type="text" v-model="name"></p>
+        <p><input type="text" v-model="description"></p>
+        <p><button type="submit">Add</button></p>
     </form>
 </body>
 <html>
