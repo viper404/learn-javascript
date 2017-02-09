@@ -7,8 +7,13 @@ $(function () {
     var vm = new Vue({
         el: '#vm',
         data: {
-            name: 'Robot',
-            age: 15
+            email: '',
+            name: ''
+        },
+        methods: {
+            register: function () {
+                alert(JSON.stringify(this.$data));
+            }
         }
     });
     window.vm = vm;
@@ -16,9 +21,10 @@ $(function () {
 </script>
 </head>
 <body>
-    <div id="vm">
-        <p>Hello, {{ name }}!</p>
-        <p>You are {{ age }} years old!</p>
-    </div>
+    <form id="vm" v-on:submit.prevent="register">
+        <p>Email: <input v-model="email" type="text"></p>
+        <p>Name: <input v-model="name" type="text"></p>
+        <p><input type="submit" value="Register"></p>
+    </form>
 </body>
 <html>
